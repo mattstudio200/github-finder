@@ -1,0 +1,52 @@
+Used for creating dynamic user interface
+Component based
+It's a library
+
+Router
+
+HTTP client
+axios
+fetchapi
+
+Setting up env
+
+vscode
+extensions
+React Developer Tools
+Redux Developer Tools
+Postman
+ES7 React/Redux/GraphQL/React-Native snippets
+Bracket Pair Colorizer 2
+Auto Rename Tag
+Prettier - Code formatter
+
+Javascript
+
+{
+    "editor.fontSize": 14,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editor.showTabs": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDelete": false,
+    "terminal.integrated.shell.osx": "/bin/bash",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "editor.formatOnSave": true
+}
+
+useState
+useEffect
+
+npx create-react-app github-finder
+
+SPA framework
+
+npm run build
+npm start
+
+
+class based components
