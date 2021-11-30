@@ -1,11 +1,14 @@
+import React, {Component, Fragment} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className='App'>
+class App extends Component {
+  render() {
+    return (
+    <Fragment>
       <h1>Hello</h1>
-    </div>
-  );
+    </Fragment>
+    );
+  }
 }
 
 export default App;

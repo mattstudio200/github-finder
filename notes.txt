@@ -50,3 +50,19 @@ npm start
 
 
 class based components
+
+What is the diff between html and jsx?
+
+className
+htmlFor
+
+
+What is a fragment and how do you do it?
+fragments
+<>
+</>
+
+
+<Fragment>
+</Fragment>
+
