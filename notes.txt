@@ -69,3 +69,10 @@ fragments
 
 https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
 rce
+
+racfe
+
+
+npx prettier --write .
+
+Formatting Toggle
