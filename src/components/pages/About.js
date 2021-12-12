@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
 
 const About = () => {
     return (
@@ -7,7 +7,7 @@ const About = () => {
             <p>App</p>
             <p>1.0.0</p>
         </Fragment>
-    )
-}
+    );
+};
 
-export default About
+export default About;

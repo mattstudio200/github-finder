@@ -76,3 +76,5 @@ racfe
 npx prettier --write .
 
 Formatting Toggle
+
+migrating react router 5 to react router 6

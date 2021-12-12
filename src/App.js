@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Users from './components/layout/users/Users';
+import User from './components/layout/users/User';
+
 import Search from './components/layout/users/Search';
 import Alert from './components/layout/Alert';
 import About from './components/pages/About';
@@ -12,6 +14,7 @@ import axios from 'axios';
 class App extends Component {
     state = {
         users: [],
+        user: {},
         loading: false,
         alert: null,
     };
@@ -45,6 +48,22 @@ class App extends Component {
         }
     };
 
+    getUser = async (login) => {
+        if (login.length > 0) {
+            this.setState({
+                loading: true,
+            });
+            const response = await axios.get(
+                `https://api.github.com/users/${login}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+            );
+            console.log(response);
+            this.setState({
+                loading: false,
+                user: response.data,
+            });
+        }
+    };
+
     clearUsers = () => {
         this.setState({
             loading: false,
@@ -59,7 +78,7 @@ class App extends Component {
     };
 
     render() {
-        const { users, loading, alert } = this.state;
+        const { users, user, loading, alert } = this.state;
 
         return (
             <Router>
@@ -88,10 +107,16 @@ class App extends Component {
                                     </Fragment>
                                 }
                             ></Route>
+                            <Route path="/about" element={<About />}></Route>
                             <Route
-                                path="/about"
+                                exact
+                                path="/user/:username"
                                 element={
-                                    <About/>
+                                    <User
+                                        getUser={this.getUser}
+                                        user={user}
+                                        loading={loading}
+                                    />
                                 }
                             ></Route>
                         </Routes>
