@@ -17,7 +17,7 @@ class App extends Component {
         user: {},
         loading: false,
         alert: null,
-        repos: []
+        repos: [],
     };
 
     async componentDidMount() {
