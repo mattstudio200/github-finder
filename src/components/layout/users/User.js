@@ -63,7 +63,6 @@ const User = ({ user, loading, getUser, getUserRepos, repos }) => {
                         )}
                         <a
                             href={html_url}
-                            target="_blank"
                             className="btn btn-dark my-1"
                         >
                             Visit Github Profile
@@ -87,7 +86,7 @@ const User = ({ user, loading, getUser, getUserRepos, repos }) => {
                                 {blog && (
                                     <Fragment>
                                         <strong>Blog: </strong>{' '}
-                                        <a href={blog} target="_blank">
+                                        <a href={blog}>
                                             {blog}
                                         </a>
                                     </Fragment>
