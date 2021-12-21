@@ -1,10 +1,8 @@
-import React, { Fragment, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import Users from './components/layout/users/Users';
-import User from './components/layout/users/User';
 
-import Search from './components/layout/users/Search';
+import User from './components/layout/users/User';
 import Alert from './components/layout/Alert';
 import About from './components/pages/About';
 
@@ -12,6 +10,8 @@ import GithubContext from './context/github/githubContext';
 import AlertState from './context/alert/AlertState';
 
 import './App.css';
+import Home from './components/pages/Home';
+import NotFound from './components/pages/NotFound';
 
 const App = () => {
     const githubContext = useContext(GithubContext);
@@ -33,10 +33,7 @@ const App = () => {
                             <Route
                                 path="/"
                                 element={
-                                    <Fragment>
-                                        <Search />
-                                        <Users />
-                                    </Fragment>
+                                   <Home />
                                 }
                             ></Route>
                             <Route path="/about" element={<About />}></Route>
@@ -44,6 +41,10 @@ const App = () => {
                                 exact
                                 path="/user/:username"
                                 element={<User />}
+                            ></Route>
+                            <Route
+                                path="*"
+                                element={<NotFound />}
                             ></Route>
                         </Routes>
                     </div>
