@@ -1,12 +1,15 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, useContext, Fragment } from 'react';
 import { useParams } from 'react-router-dom';
 import Spinner from '../Spinner';
 import Repos from '../repos/Repos';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const User = ({ user, loading, getUser, getUserRepos, repos }) => {
+import GithubContext from '../../../context/github/githubContext';
+
+const User = () => {
     let { username } = useParams();
+    const githubContext = useContext(GithubContext);
+    const { user, loading, getUser, getUserRepos, repos } = githubContext;
 
     useEffect(() => {
         getUser(username);
@@ -61,10 +64,7 @@ const User = ({ user, loading, getUser, getUserRepos, repos }) => {
                                 <p>{bio}</p>
                             </Fragment>
                         )}
-                        <a
-                            href={html_url}
-                            className="btn btn-dark my-1"
-                        >
+                        <a href={html_url} className="btn btn-dark my-1">
                             Visit Github Profile
                         </a>
                         <ul>
@@ -86,9 +86,7 @@ const User = ({ user, loading, getUser, getUserRepos, repos }) => {
                                 {blog && (
                                     <Fragment>
                                         <strong>Blog: </strong>{' '}
-                                        <a href={blog}>
-                                            {blog}
-                                        </a>
+                                        <a href={blog}>{blog}</a>
                                     </Fragment>
                                 )}
                             </li>
@@ -113,14 +111,6 @@ const User = ({ user, loading, getUser, getUserRepos, repos }) => {
             </Fragment>
         );
     }
-};
-
-User.propTypes = {
-    user: PropTypes.object.isRequired,
-    loading: PropTypes.bool.isRequired,
-    getUser: PropTypes.func.isRequired,
-    getUserRepos: PropTypes.func.isRequired,
-    repos: PropTypes.array.isRequired,
 };
 
 export default User;
